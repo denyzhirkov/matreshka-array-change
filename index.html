@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>matreshka-array-change</title>
+	<script type="text/javascript" src="https://raw.githubusercontent.com/matreshkajs/matreshka/master/matreshka.min.js"></script>
+	<script type="text/javascript" src="matreshka-array-change.js"></script>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+
+var Arr = Class({
+	'extends': MK.Array,
+	'trackBy': 'id'
+});
+
+var arr = new Arr();
+
+
+var a = [
+	{id: 1, a: 111},
+	{id: 2, a: 222},
+	{id: 3, a: 333}
+];
+
+arr.recreate(a);
+
+</script>
+</body>
+</html>
