@@ -15,6 +15,7 @@ var change = function(arr1, arr2, options){
 
 		while(el = arr2.pop()){
 
+			if(arr1.length != 0){
 
 				for (var i = arr1.length - 1; i >= 0; i--) {
 
