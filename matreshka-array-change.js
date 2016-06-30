@@ -1,4 +1,4 @@
-//v0.2
+//v0.3
 
 ;(function(MKA){
 
@@ -15,35 +15,46 @@ var change = function(arr1, arr2, options){
 
 		while(el = arr2.pop()){
 
-			for (var i = arr1.length - 1; i >= 0; i--) {
 
-				if(!(i in used)){
-					
-					if(arr1[i][arr1.trackBy] == el[arr1.trackBy]){ //if objects are the same (arr1.trackBy)
+				for (var i = arr1.length - 1; i >= 0; i--) {
 
-						used[i]=i; //add to 'used'
+					if(!(i in used)){
+						
+						if(arr1[i][arr1.trackBy] == el[arr1.trackBy]){ //if objects are the same (arr1.trackBy)
 
-						for(v in el){
+							used[i]=i; //add to 'used'
 
-							if(arr1[i].hasOwnProperty(v)){ //changing values in ORIGINAL array object with NEW ARRAY object
+							for(v in el){
 
-								arr1[i][v] = el[v];
+								if(arr1[i].hasOwnProperty(v)){ //changing values in ORIGINAL array object with NEW ARRAY object
+
+									arr1[i][v] = el[v];
+
+								}
+
+							}
+
+							break;
+
+						}else{
+							
+							if(0 == i && options.push != false){ //pushing if not in ORIGINAL array and push is allowed (options.push)
+
+								arr1.push(el);
 
 							}
 
 						}
 
-						break;
-
-					}else{
-						
-						if(0 == i && options.push != false){ //pushing if not in ORIGINAL array and push is allowed (options.push)
-
-							arr1.push(el);
-
-						}
-
 					}
+
+				}
+
+			}else{
+
+				if(options.push != false){
+
+					arr1.push(el);
 
 				}
 
